@@ -1,0 +1,209 @@
+/* 重置默认样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 设置body基本样式，应用渐变背景 */
+body {
+    font-family: 'Arial', sans-serif, 'Microsoft YaHei'; /* 使用常见的无衬线字体 */
+    background-color: white; /* 初始背景色为白色 */
+    min-height: 100vh; /* 至少占满视口高度 */
+    transition: background-color 0.5s ease; /* 添加背景色过渡效果 */
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 轻微阴影增加层次感 */
+    position: sticky; /* 粘性定位，滚动时固定在顶部 */
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #4A90E2; /* 底部蔚蓝色线条 */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* 左右对齐 */
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    border-radius: 8px;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem; /* 菜单项目间距 */
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* 圆润按钮效果 */
+    transition: all 0.3s ease; /* 平滑过渡 */
+}
+
+.nav-menu a:hover {
+    background-color: #f0f8ff;
+    color: #4A90E2;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: 0;
+        top: -100%;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 2rem 0;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        top: 70px;
+    }
+
+    .nav-menu li {
+        margin: 1rem 0;
+    }
+
+    .nav-menu a {
+        display: block;
+        padding: 1rem;
+    }
+}
+
+/* 主体内容样式 */
+.main-content {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 16px; /* 整体圆润效果 */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    line-height: 1.8;
+}
+
+.main-content h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2.2em;
+}
+
+.main-content p {
+    margin-bottom: 1.2rem;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* 页脚样式 */
+.footer {
+    background-color: white;
+    border-top: 2px solid #4A90E2;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    color: #777;
+    font-size: 0.9em;
+    margin-top: auto;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #4A90E2;
+}
+
+.partners {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.partners h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 1.8em;
+}
+
+.partners-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+}
+
+.partners-grid img {
+    max-width: 100%;
+    height: 100px;
+    width: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.partners-grid img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.join-button-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.join-button {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background-color: #4A90E2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
