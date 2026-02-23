@@ -207,3 +207,36 @@ body {
     font-size: 1.1em;
     font-weight: 500;
 }
+
+/* 404页面样式 */
+.not-found h1 {
+    font-size: 5em;
+    color: #4A90E2;
+    margin-bottom: 0.5rem;
+}
+
+.not-found p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.not-found-button-container {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.not-found-button {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    background-color: #4A90E2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.not-found-button:hover {
+    background-color: #357ABD;
+}

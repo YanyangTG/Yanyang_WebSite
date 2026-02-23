@@ -83,6 +83,18 @@ function Navbar() {
   )
 }
 
+function NotFound() {
+  return (
+    <main className="main-content not-found">
+      <h1>404</h1>
+      <p>抱歉，你访问的页面不存在。</p>
+      <div className="not-found-button-container">
+        <Link to="/" className="not-found-button">返回首页</Link>
+      </div>
+    </main>
+  )
+}
+
 function Home() {
   return (
     <main className="main-content">
@@ -120,6 +132,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/join" element={<Join />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </div>
