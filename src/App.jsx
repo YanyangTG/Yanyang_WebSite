@@ -250,7 +250,7 @@ function Home() {
           {/* 内嵌统计数据 */}
           <div className="brand-stats">
             <div className="brand-stat">
-              <span className="brand-stat-num">52+</span>
+              <span className="brand-stat-num">100+</span>
               <span className="brand-stat-label">活跃成员</span>
             </div>
             <div className="brand-stat-divider"></div>
@@ -340,7 +340,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <img src="/logo.png" alt="晏阳" />
+          <img src="/logo2.png" alt="晏阳" />
           <span>晏阳城市建设</span>
         </div>
         <Space size="large" className="footer-links">
