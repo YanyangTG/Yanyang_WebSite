@@ -1,4 +1,4 @@
-name: 部署到 Nginx 服务器
+name: 部署到宝塔 Nginx
 
 on:
   push:
@@ -6,68 +6,48 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     
     steps:
-      # 1. 拉取代码
       - name: 拉取代码
         uses: actions/checkout@v4
       
-      # 2. 设置 Node.js
       - name: 安装 Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
       
-      # 3. 安装依赖（Vite 7 + React 19）
       - name: 安装依赖
         run: npm ci
       
-      # 4. 构建项目
-      - name: 构建项目
+      - name: 构建 Vite + React 项目
         run: npm run build
-        env:
-          # 如果有环境变量，在这里设置
-          VITE_API_URL: ${{ secrets.VITE_API_URL }}
       
-      # 5. 打包构建产物（可选，方便传输）
-      - name: 打包构建产物
-        run: tar -czf dist.tar.gz -C dist .
-      
-      # 6. 上传到 Nginx 服务器
-      - name: 上传文件到服务器
+      - name: 部署到宝塔网站目录
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT || 22 }}
-          source: "dist.tar.gz"
-          target: "/tmp/"
+          source: "./dist/*"
+          target: "/www/wwwroot/www.yanyn.cn/"
+          strip_components: 1
+          overwrite: true
       
-      # 7. 解压并部署到 Nginx 目录
-      - name: 部署到 Nginx
+      - name: 设置权限
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
+          password: ${{ secrets.SERVER_PASSWORD }}
           port: ${{ secrets.SERVER_PORT || 22 }}
           script: |
-            # 解压文件
-            sudo tar -xzf /tmp/dist.tar.gz -C /var/www/html/
-            # 清理临时文件
-            rm /tmp/dist.tar.gz
-            # 设置正确的权限
-            sudo chown -R www-data:www-data /var/www/html/
-            sudo chmod -R 755 /var/www/html/
-            # 重载 Nginx（可选）
-            sudo systemctl reload nginx
-            echo "部署完成！"
-      
-      # 8. 可选：发送部署通知
-      - name: 部署成功通知
-        if: success()
-        run: echo "✅ 部署成功！"
+            # 设置正确的权限（宝塔默认是 www 用户）
+            chown -R www:www /www/wwwroot/www.yanyn.cn
+            chmod -R 755 /www/wwwroot/www.yanyn.cn
+            # 重载 Nginx（可选，宝塔会自动检测）
+            /etc/init.d/nginx reload
+            echo "✅ 部署完成！网站已更新到 /www/wwwroot/www.yanyn.cn"
