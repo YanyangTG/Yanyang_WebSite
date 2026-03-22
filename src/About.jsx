@@ -6,6 +6,7 @@ import {
   RocketIcon,
 } from 'tdesign-icons-react'
 import { RevealSection } from './App.jsx'
+import './style.css'
 
 function About() {
   return (
@@ -95,27 +96,34 @@ function About() {
 
       <section className="partners-section">
         <RevealSection>
-          <div className="section-header">
+          <div className="partners-header">
             <h2>合作伙伴</h2>
             <p>感谢以下伙伴的支持与合作</p>
           </div>
-          <Row gutter={[24, 24]} justify="center" className="partners-grid">
-            {[1, 2, 3, 4, 5].map(i => (
-              <Col key={i} xs={6} sm={4} md={4} lg={2}>
-                <Tooltip content={`合作伙伴 ${i}`} placement="top">
-                  <Card className="partner-card" hoverShadow>
-                    <Image
-                      src={`/us/${i}.png`}
-                      alt="合作伙伴"
-                      lazy
-                      fit="contain"
-                      style={{ height: '80px', width: '100%' }}
-                    />
-                  </Card>
-                </Tooltip>
-              </Col>
-            ))}
-          </Row>
+          <div className="carousel-container">
+            <div className="carousel-track">
+              {/* 第一轮合作伙伴 */}
+              {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                <div key={`partner-${i}-1`} className="carousel-item">
+                  <img
+                    src={`/us/${i}.png`}
+                    alt={`合作伙伴 ${i}`}
+                    className="carousel-logo"
+                  />
+                </div>
+              ))}
+              {/* 第二轮重复，实现无缝滚动 */}
+              {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+                <div key={`partner-${i}-2`} className="carousel-item">
+                  <img
+                    src={`/us/${i}.png`}
+                    alt={`合作伙伴 ${i}`}
+                    className="carousel-logo"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </RevealSection>
       </section>
     </>
