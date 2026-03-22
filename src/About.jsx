@@ -103,23 +103,46 @@ function About() {
           <div className="carousel-container">
             <div className="carousel-track">
               {/* 第一轮合作伙伴 */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                <div key={`partner-${i}-1`} className="carousel-item">
-                  <img
-                    src={`/us/${i}.png`}
-                    alt={`合作伙伴 ${i}`}
-                    className="carousel-logo"
-                  />
+              {[
+                { id: 1, url: "https://rail.yanyn.cn" },
+                { id: 2, url: "https://tech.yanyn.cn" },
+                { id: 3, url: "https://www.yanyn.cn/404" },
+                { id: 4, url: "https://www.yanyn.cn/404" },
+                { id: 5, url: "https://www.yanyn.cn/404" },
+                { id: 6, url: "https://www.yanyn.cn/404" },
+                { id: 7, url: "https://www.yanyn.cn/404" },
+                { id: 8, url: "https://jjmm.ink" }
+              ].map(partner => (
+                <div key={`partner-${partner.id}-1`} className="carousel-item">
+                  <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={`/us/${partner.id}.png`}
+                      alt={`合作伙伴 ${partner.id}`}
+                      className="carousel-logo"
+                    />
+                  </a>
                 </div>
               ))}
+
               {/* 第二轮重复，实现无缝滚动 */}
-              {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
-                <div key={`partner-${i}-2`} className="carousel-item">
-                  <img
-                    src={`/us/${i}.png`}
-                    alt={`合作伙伴 ${i}`}
-                    className="carousel-logo"
-                  />
+              {[
+                { id: 1, url: "https://rail.yanyn.cn" },
+                { id: 2, url: "https://tech.yanyn.cn" },
+                { id: 3, url: "https://www.yanyn.cn/404" },
+                { id: 4, url: "https://www.yanyn.cn/404" },
+                { id: 5, url: "https://www.yanyn.cn/404" },
+                { id: 6, url: "https://www.yanyn.cn/404" },
+                { id: 7, url: "https://www.yanyn.cn/404" },
+                { id: 8, url: "https://jjmm.ink" }
+              ].map(partner => (
+                <div key={`partner-${partner.id}-2`} className="carousel-item">
+                  <a href={partner.url} target="_blank" rel="noopener noreferrer">
+                    <img
+                      src={`/us/${partner.id}.png`}
+                      alt={`合作伙伴 ${partner.id}`}
+                      className="carousel-logo"
+                    />
+                  </a>
                 </div>
               ))}
             </div>
