@@ -29,6 +29,7 @@ import {
 import About from './About.jsx'
 import Join from './Join.jsx'
 import Activity from './Activity.jsx'
+import Software from './Software.jsx'
 
 const { HeadMenu, MenuItem } = Menu
 
@@ -98,7 +99,7 @@ function Navbar() {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         <Link to="/" className="nav-brand" onClick={() => window.scrollTo(0, 0)}>
-          <img src="/logo.png" alt="晏阳城市建设" className="logo" />
+          <img src="/images/logo.png" alt="晏阳城市建设" className="logo" />
         </Link>
 
         <div className="nav-desktop">
@@ -112,16 +113,13 @@ function Navbar() {
                 {item.label}
               </MenuItem>
             ))}
-            <MenuItem value="__external_rail">
-              <a
-                href="https://rail.yanyn.cn/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="nav-external-link"
-                onClick={(e) => e.stopPropagation()}
+            <MenuItem value="/software">
+              <span
+                onClick={() => handleNavClick('/software')}
+                style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '4px' }}
               >
-                轨交 <LinkIcon size="14px" />
-              </a>
+                工具 🔧
+              </span>
             </MenuItem>
           </HeadMenu>
         </div>
@@ -153,16 +151,15 @@ function Navbar() {
               </div>
             ))}
             <Divider />
-            <a
-              href="https://rail.yanyn.cn/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="drawer-nav-item external"
+            <div
+              className="drawer-nav-item"
+              onClick={() => handleNavClick('/software')}
+              style={{ cursor: 'pointer' }}
             >
-              <LinkIcon />
-              <span>轨道交通系统</span>
-              <LinkIcon size="12px" style={{ marginLeft: 'auto' }} />
-            </a>
+              <span>🔧</span>
+              <span>工具</span>
+              <span style={{ marginLeft: 'auto' }}>🔧</span>
+            </div>
           </div>
         </Drawer>
       </div>
@@ -265,7 +262,7 @@ function Home() {
             </div>
             <div className="brand-stat-divider"></div>
             <div className="brand-stat">
-              <span className="brand-stat-num">4年</span>
+              <span className="brand-stat-num">4 年</span>
               <span className="brand-stat-label">持续运营</span>
             </div>
           </div>
@@ -328,7 +325,7 @@ function Footer() {
   useEffect(() => {
     if (__USER_DEBUG__) {
       console.log('[UserDebug] 页脚组件已加载')
-      console.log('[UserDebug] 当前模式: userdebug')
+      console.log('[UserDebug] 当前模式：userdebug')
       console.log('[UserDebug] 版本:', __VERSION__)
       console.log('[UserDebug] 构建者:', __BUILDER__)
       console.log('[UserDebug] 构建环境:', __BUILD_ENV__)
@@ -340,7 +337,7 @@ function Footer() {
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-brand">
-          <img src="/logo2.png" alt="晏阳" />
+          <img src="/images/logo2.png" alt="晏阳" />
           <span>晏阳城市建设</span>
         </div>
         <Space size="large" className="footer-links">
@@ -350,7 +347,7 @@ function Footer() {
             theme="primary"
             underline
           >
-            QQ群 486029013
+            QQ 群 486029013
           </TLink>
           <TLink href="mailto:feedback@yanyn.cn" theme="primary" underline>
             feedback@yanyn.cn
@@ -368,9 +365,9 @@ function Footer() {
         <div className="footer-copy">
           &copy; 2025-2026 晏阳技术组 版权所有
         </div>
-        <div style={{ 
-          fontSize: '12px', 
-          marginTop: '8px', 
+        <div style={{
+          fontSize: '12px',
+          marginTop: '8px',
           color: '#999',
           textAlign: 'center'
         }}>
@@ -378,7 +375,7 @@ function Footer() {
         </div>
         {__USER_DEBUG__ && (
           <div style={{ color: 'red', fontSize: '12px', marginTop: '4px' }}>
-            【测试版本】USER DEBUG 模式 · 构建者: {__BUILDER__}
+            【测试版本】USER DEBUG 模式 · 构建者：{__BUILDER__}
           </div>
         )}
       </div>
@@ -397,6 +394,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/join" element={<Join />} />
           <Route path="/activity" element={<Activity />} />
+          <Route path="/software" element={<Software />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransition>

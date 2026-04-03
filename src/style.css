@@ -1001,7 +1001,228 @@ a {
     }
 }
 
+/* 页面容器 */
+.software-page {
+  min-height: calc(100vh - 200px);
+  padding-bottom: 60px;
+}
+
+/* 顶部 Hero 区域 */
+.software-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 80px 24px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.software-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.software-tag {
+  font-size: 16px;
+  padding: 8px 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.software-title {
+  margin: 20px 0;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.software-title-main {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.software-title-sub {
+  display: block;
+  font-size: 24px;
+  font-weight: normal;
+  opacity: 0.9;
+}
+
+.software-desc {
+  font-size: 18px;
+  opacity: 0.95;
+  margin: 24px 0;
+  line-height: 1.6;
+}
+
+.software-actions {
+  margin-top: 32px;
+}
+
+/* 工具区块网格 */
+.software-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.software-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* 方块样式 */
+.software-block {
+  background: white;
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 2px solid #f0f0f0;
+}
+
+.software-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.2);
+  border-color: #667eea;
+}
+
+.software-block-icon {
+  font-size: 56px;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.software-block h3 {
+  font-size: 22px;
+  color: #333;
+  margin: 16px 0 12px;
+  font-weight: 600;
+}
+
+.software-block p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 42px;
+}
+
+.software-block .t-button {
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .software-hero {
+    padding: 60px 20px;
+  }
+
+  .software-title {
+    font-size: 36px;
+  }
+
+  .software-title-sub {
+    font-size: 20px;
+  }
+
+  .software-desc {
+    font-size: 16px;
+  }
+
+  .software-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+  }
+
+  .software-block {
+    padding: 24px 20px;
+  }
+
+  .software-block-icon {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .software-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ==================== BackTop 覆盖 ==================== */
 .t-back-top {
     z-index: 999;
 }
+
+.frp-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.frp-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.frp-content p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.tech-services {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.tech-service-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.tech-logo {
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.tech-service-item:hover .tech-logo {
+  transform: scale(1.05);
+}
+
+.tech-service-item p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
+}
+
+.tech-service-divider {
+  width: 1px;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .tech-services {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tech-service-divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+

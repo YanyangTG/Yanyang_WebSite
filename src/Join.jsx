@@ -40,7 +40,7 @@ function Join() {
             <Steps current={-1} layout="vertical">
               <StepItem
                 title="加入 QQ 群"
-                content="通过下方按钮加入我们的QQ交流群，与管理员取得联系。"
+                content="通过下方按钮加入我们的 QQ 交流群，与管理员取得联系。"
                 icon={<ChatIcon />}
               />
               <StepItem
@@ -96,7 +96,7 @@ function Join() {
               </Col>
               <Col xs={12} sm={6}>
                 <Tooltip content="点击复制群号">
-                  <div className="info-item info-item--copyable" onClick={() => copyToClipboard('486029013', 'QQ群号')}>
+                  <div className="info-item info-item--copyable" onClick={() => copyToClipboard('486029013', 'QQ 群号')}>
                     <UserIcon size="20px" className="info-icon" />
                     <div className="info-text">
                       <span className="info-label">QQ 群号</span>
@@ -126,7 +126,7 @@ function Join() {
           <Card title="硬件配置" className="info-card" hoverShadow bordered>
             <Row gutter={[16, 16]}>
               <Col xs={12} sm={6}>
-                <Tooltip content="Intel Xeon E5-2698B V3, 16核32线程">
+                <Tooltip content="Intel Xeon E5-2698B V3, 16 核 32 线程">
                   <div className="info-item">
                     <ServerIcon size="20px" className="info-icon" />
                     <div className="info-text">
@@ -173,6 +173,26 @@ function Join() {
           </Card>
         </RevealSection>
 
+        <RevealSection delay={120}>
+          <Card title="技术服务" className="info-card" hoverShadow bordered>
+            <div className="tech-services">
+              <div className="tech-service-item">
+                <a href="https://www.passnat.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/join/frplogo.png" alt="FRP Logo" className="tech-logo" />
+                </a>
+                <p>FRP 内网穿透</p>
+              </div>
+              <div className="tech-service-divider"></div>
+              <div className="tech-service-item">
+                <a href="https://www.rainyun.com" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/join/webserver.png" alt="网站云服务商" className="tech-logo" />
+                </a>
+                <p>网站云服务</p>
+              </div>
+            </div>
+          </Card>
+        </RevealSection>
+
         <RevealSection delay={240}>
           <Card className="faq-card" hoverShadow>
             <div className="section-header" style={{ marginBottom: '1.5rem' }}>
@@ -186,7 +206,7 @@ function Join() {
                 没有硬性要求！无论你是建筑大佬还是新手，只要热爱城市建设，都欢迎加入。社群内有经验丰富的玩家可以提供指导。
               </CollapsePanel>
               <CollapsePanel header="服务器有哪些规则？" value="3">
-                主要包括：禁止使用外挂/熊服、尊重他人建筑作品、遵守城市规划布局等。详细规则将在QQ群内公布。
+                主要包括：禁止使用外挂/熊服、尊重他人建筑作品、遵守城市规划布局等。详细规则将在 QQ 群内公布。
               </CollapsePanel>
               <CollapsePanel header="审核需要多长时间？" value="4">
                 通常管理员会在 24 小时内处理你的入服申请，高峰期可能稍有延迟。
