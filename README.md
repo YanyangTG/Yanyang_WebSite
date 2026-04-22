@@ -7,13 +7,11 @@
 
 
 ## 技术栈
-
-
-- React 19
-- React Router DOM 7
-- Vite 7
-- TDesign React（腾讯企业级 UI 组件库）
-- TDesign Icons React（图标库）
+<img align="center" src="https://img.shields.io/badge/React-19-green"/>
+<img align="center" src="https://img.shields.io/badge/React Router DOM-7-red"/>
+<img align="center" src="https://img.shields.io/badge/Vite-7-blue"/>
+<img align="center" src="https://img.shields.io/badge/UI-TDesign React-blue"/>
+<img align="center" src="https://img.shields.io/badge/Icons-TDesign Icons React-blue"/>
 
 
 ## TDesign 组件使用
